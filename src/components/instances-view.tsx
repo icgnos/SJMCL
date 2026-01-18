@@ -65,7 +65,9 @@ const InstancesView: React.FC<InstancesViewProps> = ({
           boxSize="32px"
           src={getInstanceIconSrc(instance.iconSrc, instance.versionPath)}
           alt={instance.name}
-          fallbackSrc="/images/icons/JEIcon_Release.png"
+          onError={(e) => {
+            e.currentTarget.src = "/images/icons/JEIcon_Release.png";
+          }}
         />
       </HStack>
     ),
@@ -89,7 +91,9 @@ const InstancesView: React.FC<InstancesViewProps> = ({
           boxSize="36px"
           src={getInstanceIconSrc(instance.iconSrc, instance.versionPath)}
           alt={instance.name}
-          fallbackSrc="/images/icons/JEIcon_Release.png"
+          onError={(e) => {
+            e.currentTarget.src = "/images/icons/JEIcon_Release.png";
+          }}
         />
       ),
       extraContent: (

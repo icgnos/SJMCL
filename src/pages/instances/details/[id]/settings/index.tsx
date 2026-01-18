@@ -112,7 +112,9 @@ const InstanceSettingsPage = () => {
                 src={getInstanceIconSrc(summary?.iconSrc, summary?.versionPath)}
                 alt={summary?.iconSrc}
                 boxSize="28px"
-                fallbackSrc="/images/icons/JEIcon_Release.png"
+                onError={(e) => {
+                  e.currentTarget.src = "/images/icons/JEIcon_Release.png";
+                }}
               />
               <InstanceIconSelectorPopover
                 value={summary?.iconSrc}

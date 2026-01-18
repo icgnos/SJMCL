@@ -137,7 +137,9 @@ export const InstanceBasicInfoWidget = () => {
             src={getInstanceIconSrc(summary?.iconSrc, summary?.versionPath)}
             alt={summary?.iconSrc}
             boxSize="28px"
-            fallbackSrc="/images/icons/JEIcon_Release.png"
+            onError={(e) => {
+              e.currentTarget.src = "/images/icons/JEIcon_Release.png";
+            }}
           />
         }
         zIndex={998}
@@ -375,7 +377,9 @@ export const InstanceLastPlayedWidget = () => {
           <HStack spacing={3} w="full" alignItems="center">
             <Image
               src={convertFileSrc(lastPlayedWorld.iconSrc)}
-              fallbackSrc="/images/icons/UnknownWorld.webp"
+              onError={(e) => {
+                e.currentTarget.src = "/images/icons/UnknownWorld.webp";
+              }}
               alt={lastPlayedWorld.name}
               boxSize="28px"
               borderRadius="4px"
